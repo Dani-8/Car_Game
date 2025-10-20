@@ -1,0 +1,196 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    /* padding: 40px; */
+    background: #1f2937;
+}
+/* ------------------------------------------ */
+
+.game-container{
+    position: relative;
+    background-color: black;
+    border-radius: 20px;
+    border: 3px solid rgba(148, 158, 201, 0.5);
+    box-shadow: 0 10px 80px rgba(0, 0, 0, 0.4);
+    height: 700px;
+    width: 450px;
+    overflow: hidden;
+}
+
+.road{
+    position: absolute;
+    background: #27272a; 
+    height: 100%;
+    width: 100%;
+}
+
+.lane{
+    position: absolute;
+    width: 3px;
+    height: 100%;
+    background: repeating-linear-gradient(
+        160deg,
+        transparent,
+        transparent 30px,
+        #ffd700 30px,
+        #ffd700 60px
+    );
+    animation: moveLines 0.8s linear infinite;
+}
+.lane.stop{
+    background: repeating-linear-gradient(
+    160deg,
+    transparent,
+    transparent 30px,
+    #ef4444 30px,
+    #ef4444 60px
+    );
+}
+
+.lane:nth-child(1) { left: 30.33%; }
+.lane:nth-child(2) { left: 70.66%; }
+
+
+@keyframes moveLines {
+    from { background-position: 0 0; }
+    to { background-position: 0 120px; }
+}
+
+.stop-line{
+    position: absolute;
+    top: 80%;
+    left: 0;
+    width: 100%;
+    height: 7px;
+    background: #fcd34d;
+    z-index: 5;
+    opacity: 0.5;
+}
+.stop-line.stop{
+    background-color: #ef4444;
+}
+
+.score{
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    padding: 10px 15px;
+    border-radius: 12px;
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-align: center;
+
+}
+
+
+.traffic-lights{
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    padding: 10px;
+    background-color: rgb(22, 34, 48);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.light{
+    background-color: rgba(255, 255, 255, 0.1);
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+}
+.red.active{
+    background-color: rgb(242, 69, 60);
+    box-shadow: 0 0 15px rgba(211, 40, 31, 0.8);
+    color: white;
+}
+.yellow.active{
+    background-color: rgb(238, 225, 43);
+    box-shadow: 0 0 15px rgba(238, 225, 43, 0.8);
+}
+.green.active{
+    background-color: rgb(31, 211, 97);
+    box-shadow: 0 0 15px rgba(31, 211, 97, 0.8);
+}
+
+
+.warning-msg{
+    position: absolute;
+    top: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 12px 25px; 
+    border-radius: 12px;
+    font-size: 15px;    
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 900;
+    text-align: center;
+}
+
+
+
+
+
+
+.car{
+    position: absolute;
+    width: 60px;
+    height: 100px;
+    background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+    border-radius: 15px 15px 10px 10px;
+    box-shadow: 0 0px 25px rgba(52, 152, 219, 0.8);
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    transition: left 0.2s ease-out;
+    z-index: 999;
+    
+}
+.car::before {
+    content: '';
+    position: absolute;
+    top: 12px;
+    left: 50%;
+    width: 42px;
+    height: 32px;
+    background: linear-gradient(155deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.5));
+    border-radius: 8px;
+    transform: translateX(-50%);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
